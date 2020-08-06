@@ -5,8 +5,8 @@
     <!-- vehicle model and world -->
     <arg name="est" default="ekf2"/>
     <arg name="vehicle" default="iris"/>
-    <!-- <arg name="world" default="$(find mavros)/../sim/worlds/test_city_2.world"/> -->
-    <arg name="world" default="$(find mavlink_sitl_gazebo)/worlds/empty.world"/>
+    <arg name="world" default="$(find mavlink_sitl_gazebo)/worlds/test3.world"/>
+    <!-- <arg name="world" default="$(find mavlink_sitl_gazebo)/worlds/test.world"/> -->
     <!-- gazebo configs -->
     <arg name="gui" default="true"/>
     <arg name="debug" default="false"/>
@@ -21,7 +21,7 @@
         <arg name="paused" value="$(arg paused)"/>
     </include>
     <!-- UAV0 -->
-    <group ns="uav0">
+    <group ns="uav_0">
         <!-- MAVROS and vehicle configs -->
         <arg name="ID" value="0"/>
         <arg name="fcu_url" default="udp://:14540@localhost:14580"/>
@@ -39,7 +39,7 @@
             <arg name="ID" value="$(arg ID)"/>
         </include>
         <!-- MAVROS -->
-        <include file="$(find mavros)/launch/px4.launch">
+        <include file="$(find mavros)/launch/px4_sutd.launch">
             <arg name="fcu_url" value="$(arg fcu_url)"/>
             <arg name="gcs_url" value=""/>
             <arg name="tgt_system" value="$(eval 1 + arg('ID'))"/>
